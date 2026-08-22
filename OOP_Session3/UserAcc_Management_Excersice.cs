@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OOP_Session3
 {
-    internal class UserAcc_Management
+    internal class UserAcc_Management_Excersice
     {
         public class UserAccount
         {

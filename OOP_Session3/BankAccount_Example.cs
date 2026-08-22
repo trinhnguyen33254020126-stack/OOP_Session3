@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OOP_Session3
 {
-    internal class BankAccount
+    internal class BankAccount_Example
     {
 
     }
