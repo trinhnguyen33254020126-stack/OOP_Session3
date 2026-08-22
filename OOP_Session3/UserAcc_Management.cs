@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,9 +14,11 @@ namespace OOP_Session3
             // 1. Private backing fields (where needed)
             private string _password;
             private decimal _balance;
+            private string accountId;
+            private DateTime CreatedDay;
 
             // TODO 1: AccountId (Init-Only)
-            private string AccountId { get; init; }
+            private string AccountId { get; }
             // TODO 2: Username (Auto-Implemented)
             public string Username { get; set; }
             // TODO 3: Password (Write-Only)
@@ -33,18 +36,29 @@ namespace OOP_Session3
             // TODO 5: IsVIP (Computed Read-Only)
             public bool IsVIP
             {
-                get { return _balance > 10000m;}
+                get 
+                { if (_balance > 10000m)
+                        return true;
+                return false;
+                }
             }
             // TODO 6: CreatedDate (Get-Only)
+            public DateTime CreatedDay
+            {
+                get
+                {
+                    return 
+                }
+            }
             public UserAccount()
             {
-
+                CreateDay=DateTime.Now;
             }
             // Constructor
-            public UserAccount()
-            {
+
+            
                 // TODO: Initialize CreatedDate here
-            }
+            
         }
 
         class Program
