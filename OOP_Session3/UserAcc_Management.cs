@@ -28,12 +28,18 @@ namespace OOP_Session3
                     {
                         Console.WriteLine($"Số dư tài khoản âm");
                     }
-                      else _balance = value;
-                    }
+                    else _balance = value;
+                }
             // TODO 5: IsVIP (Computed Read-Only)
-
+            public bool IsVIP
+            {
+                get { return _balance > 10000m;}
+            }
             // TODO 6: CreatedDate (Get-Only)
+            public UserAccount()
+            {
 
+            }
             // Constructor
             public UserAccount()
             {
