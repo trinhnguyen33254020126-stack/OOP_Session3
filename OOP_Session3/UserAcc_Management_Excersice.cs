@@ -27,12 +27,15 @@ namespace OOP_Session3
             private decimal Balance
             {
                 get { return _balance; }
-                set { if (value < 0)
+                set
+                {
+                    if (value < 0)
                     {
                         Console.WriteLine($"Số dư tài khoản âm");
                     }
                     else _balance = value;
                 }
+            }
             // TODO 5: IsVIP (Computed Read-Only)
             public bool IsVIP
             {
