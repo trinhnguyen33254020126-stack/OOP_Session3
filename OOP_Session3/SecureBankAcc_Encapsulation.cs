@@ -85,13 +85,32 @@ namespace OOP_Session3
             // TODO 6: Implement GetBalance method (PIN required)
             public decimal GetBalance(string inputPin)
             {
-                return -1m;
+                if (inputPin != _pin)
+                {
+                    Console.WriteLine("Error: Incorrect PIN.");
+                    return -1m;
+                }
+                return _balance;
             }
 
             // TODO 7: Implement ChangePin method
             public bool ChangePin(string currentPin, string newPin)
             {
-                return false;
+                if (currentPin != _pin)
+                {
+                    Console.WriteLine("Incorrect current PIN.");
+                    return false;
+                }
+
+                if (string.IsNullOrEmpty(newPin) || newPin.Length != 4 || !newPin.All(char.IsDigit))
+                {
+                    Console.WriteLine("Invalid PIN format. New PIN must be exactly 4 numeric digits.");
+                    return false;
+                }
+
+                _pin = newPin;
+                Console.WriteLine("PIN changed successfully.");
+                return true;
             }
         }
 
