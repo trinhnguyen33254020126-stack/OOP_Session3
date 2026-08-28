@@ -11,10 +11,15 @@ namespace OOP_Session3
         public class BankAccount
         {
             // TODO 1: Declare private fields (_balance, _pin, _failedAttempts)
-
+            private decimal _balance;
+            private string _pin;
+            private int _failedAttempts;
+            
             // TODO 2: Declare public AccountHolder property (read-only)
-
+            public string AccountHolder { get; }
+            
             // TODO 3: Declare IsLocked property with a private setter
+            public bool IsLocked { get; private set; }
 
             // Constructor
             public BankAccount(string accountHolder, decimal initialBalance, string initialPin)
@@ -23,19 +28,58 @@ namespace OOP_Session3
                 _balance = initialBalance > 0 ? initialBalance : 0;
                 _pin = initialPin;
                 _failedAttempts = 0;
-                IsLocked = false;
+                IsLocked = _failedAttempts >= 3;
             }
 
             // TODO 4: Implement Deposit method
             public bool Deposit(decimal amount)
             {
-                return false;
+                if (amount <= 0)
+                {
+                    Console.WriteLine("Error: Deposit amount must be greater than zero.");
+                    return false;
+                }
+                _balance += amount;
+                Console.WriteLine($"Successfully deposited {amount:C}. New balance: {_balance:C}");
+                return true;
             }
 
             // TODO 5: Implement Withdraw method
             public bool Withdraw(decimal amount, string inputPin)
             {
-                return false;
+                if (IsLocked)
+                {
+                    Console.WriteLine("Account is locked. Cannot perform transaction.");
+                    return false;
+                }
+                if (inputPin != _pin)
+                {
+                    _failedAttempts++;
+                    Console.WriteLine("Incorrect PIN.");
+                    if (_failedAttempts >= 3)
+                    {
+                        IsLocked = true;
+                        Console.WriteLine("Account locked due to 3 failed PIN attempts.");
+                    }
+                    return false;
+                }
+
+                _failedAttempts = 0;
+
+                if (amount <= 0)
+                {
+                    Console.WriteLine("Withdrawal amount must be greater than zero.");
+                    return false;
+                }
+                if (_balance < amount)
+                {
+                    Console.WriteLine("Insufficient balance.");
+                    return false;
+                }
+
+                _balance -= amount;
+                Console.WriteLine($"Successfully withdrew {amount:C}. Remaining balance: {_balance:C}");
+                return true;
             }
 
             // TODO 6: Implement GetBalance method (PIN required)
