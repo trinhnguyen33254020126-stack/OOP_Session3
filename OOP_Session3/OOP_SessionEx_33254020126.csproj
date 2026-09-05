@@ -46,6 +46,7 @@
     <Compile Include="BankAccount_Example.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SecureBankAcc_Encapsulation.cs" />
+    <Compile Include="TaiXiuGame.cs" />
     <Compile Include="UserAcc_Management_Excersice.cs" />
   </ItemGroup>
   <ItemGroup>
