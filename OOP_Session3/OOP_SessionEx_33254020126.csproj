@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BankAccount_Example.cs" />
+    <Compile Include="EA_QuanLyChuyenXe.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SecureBankAcc_Encapsulation.cs" />
     <Compile Include="UserAcc_Management_Excersice.cs" />
